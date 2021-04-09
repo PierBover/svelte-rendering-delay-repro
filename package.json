@@ -1,0 +1,32 @@
+{
+  "name": "svelte-rendering-delay-repro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rollup.config.js",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "start": "sirv public -s --no-clear"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PierBover/svelte-rendering-delay-repro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PierBover/svelte-rendering-delay-repro/issues"
+  },
+  "homepage": "https://github.com/PierBover/svelte-rendering-delay-repro#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "rollup": "^2.45.0",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "sirv-cli": "^1.0.11",
+    "svelte": "^3.37.0"
+  }
+}
