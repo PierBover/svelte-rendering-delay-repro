@@ -1,35 +1,44 @@
 <script>
 	import {onMount} from 'svelte';
+	import {currentComponent} from '../router.js';
 
-	let showGreen = false;
+	import Menu from './Menu.svelte';
 
-	setTimeout(() => {
-		showGreen = true;
-	}, 1000);
+	let showSpinner = true;
 
-	onMount(() => {
+	onMount(async () => {
 		console.log('mounted!');
+		setTimeout(() => {
+			showSpinner = false;
+		}, 1000);
 	});
-
 </script>
 
-{#if showGreen}
-	<div class="green"></div>
+{#if showSpinner || $currentComponent === null}
+	<div class="spinner-wrap">
+		<div class="spinner-border text-primary" style="width: 5rem; height: 5rem;" role="status"></div>
+	</div>
 {:else}
-	<div class="red"></div>
+	<Menu/>
+	<div style="padding-top: 4rem;">
+		<svelte:component this={$currentComponent}/>
+	</div>
 {/if}
 
-
 <style>
-	.red {
-		background-color: tomato;
-		width: 10rem;
-		height: 10rem;
+	.spinner-wrap {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		flex-direction: column;
 	}
 
-	.green {
-		background-color: limegreen;
-		width: 10rem;
-		height: 10rem;
+	.spinner-wrap .spinner-border {
+		margin-bottom: 2rem;
 	}
 </style>
